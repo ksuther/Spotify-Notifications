@@ -1,0 +1,168 @@
+<!doctype html>
+<html> 
+    <head>
+        <meta charset="utf-8" />
+          
+        <title>Spotify Notifications</title>
+                              
+        <link href='http://fonts.googleapis.com/css?family=Istok+Web:700' rel='stylesheet' type='text/css'>
+        
+        <!--
+            Credits:
+            ---------------------------------------------
+            - Subtle Backgrounds for the pattern
+            - Spotify for an awesome service I love paying for
+            - Mihir Singh (citruspi) for the code
+            
+        -->
+        
+        <style>
+            
+            /* Reset */
+            
+            * {margin: 0px auto; padding: 0px;}
+                        
+            span, img, strong, h1, h2, p, a { 
+                padding: 0; margin: 0; border: 0;
+            }
+            
+            /* Actual Style */
+        
+            body{
+                font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-size:13px;
+                background-image: url('img/white_wall_hash.png');
+            }
+            
+            @font-face{
+                font-family: 'Istok Web', sans-serif;
+            }
+            
+            .bar{
+                width: 100%; 
+                height: 69px; 
+                background-color: #191b1d; 
+                text-align: center;
+            }
+            
+            .bar #message{
+                font-family: 'Istok Web', sans-serif;
+                font-size: 15px;
+                color:#fff;
+                display: inline-block;
+                position: relative;
+                top: 25px;
+            }
+            
+            .bar #button{
+                border: 1px solid #96ba05; 
+                font-weight: bold; 
+                text-align: center; 
+                text-decoration: none;
+                color: #fff; 
+                background-color:#96ba05; 
+                padding: 10px; 
+                position: absolute; 
+                right: 20px; 
+                top: 18px; 
+                border-radius: 3px; 
+                transition: all 200ms ease-out
+            }
+            
+            .main {
+                height: 947px; 
+                width: 940px; 
+                background: url('img/mbp.png') center bottom no-repeat; 
+                position: relative;
+            }
+            
+            .main .title {
+                width: 100%; 
+                display: block; 
+                position: absolute; 
+                text-align: center; 
+                right: 0; 
+                top: 70px;
+            }
+            
+            .main .title h1, .main .title h2 { 
+                text-shadow: 0 1px 2px rgba(0,0,0,.5);
+                color: #96ba05;
+            }
+            
+            .main .title h1 {
+                font-size: 60px; 
+                font-weight: bold; 
+            }
+            
+            .main .title h2 {
+                font-size: 32px; 
+                line-height: 1.4; 
+                font-weight: normal; 
+                margin-top: 20px; 
+            }
+            
+            .main .title .download {
+                left: 40%; 
+                margin-top: 50px;
+            }
+            
+            .main .title .comments{
+                margin-top: 110px;
+                color: #96ba05;
+            }
+            
+            .download {
+                position: absolute;
+                z-index: 1;
+                display: block;
+                width: 199px;
+                height: 51px;
+                border-radius: 3px;
+                background-clip: padding-box;
+                background-color: #96ba05; 
+                box-shadow: 0 2px 2px rgba(2,3,3,.15), inset 0 1px 0 rgba(255,255,255,.3), inset 0 0 5px rgba(255,255,255,.05); 
+                margin-bottom: 50px;
+            }
+            
+            .download .label {
+                font-size: 18px; 
+                font-weight: bold; 
+                color: #fff; 
+                text-align: center; 
+                display: block; 	
+                text-shadow: 0 -1px 0 rgba(2,3,3,.2); 
+                position: absolute; 
+                line-height: 3; 
+                z-index: 10; 
+                width: 199px; 
+                height: 51px;
+            }
+            
+        </style>
+    </head>
+  
+    <body> 
+        
+        <div class="bar">
+           <span href="index.html#" id="message">Crafted with <span style="color:#cc3333;";>&hearts;</span> by Mihir Singh. <span style="color:#96ba05">Spotify</span> is a registered trademark of Spotify AB Inc.</span>
+           <a href="http://github.com/citruspi/SpotifyNotifications" id="button">Get the Source on Github</a>
+        </div>
+
+        <div class="main">
+                
+            <div class="title">
+            
+                <h1 style="color:#96ba05;">Spotify Notifications</h1>
+                <h2 style="color:#96ba05;">Bridging Spotify and OS X Notification Center</h2>
+                               
+                <a href="index.html#" title="Get the app" class="download">
+                    <span class="label">DOWNLOAD NOW</span>
+                </a>
+                <p class="comments">Version 0.1. // 0.5 MB</p>
+            </div>
+            
+        </div>
+
+    </body>
+</html>
