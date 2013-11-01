@@ -1,190 +1,315 @@
-<!doctype html>
-<html> 
+<html>
+
     <head>
-        <meta charset="utf-8" />
-          
         <title>Spotify Notifications</title>
-                              
-        <link href='http://fonts.googleapis.com/css?family=Istok+Web:700' rel='stylesheet' type='text/css'>
-        
-        <!--
-            Credits:
-            - Subtle Backgrounds for the pattern
-            - Spotify for an awesome service I love paying for
-            - Mihir Singh (citruspi) for the code 
-        -->
-        
+
+        <link href="/css/bootstrap.min.css" rel="stylesheet">
+        <link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+
         <style>
-            /* Reset */
-            
-            * {margin: 0px auto; padding: 0px;}
-                        
-            span, img, strong, h1, h2, p, a { 
-                padding: 0; margin: 0; border: 0;
+    
+            .logo {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight:300;
+                font-size:700%;
+                text-align:center;
+                color:#7AB800;
+                margin-bottom:0em;
             }
-            
-            /* Actual Style */
-        
-            body{
-                font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
-                font-size:13px;
-                background-image: url('img/white_wall_hash.png');
+
+            .slogan {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                color:#7AB800;
+                font-weight:300;
+                text-align:center;
+                margin-bottom:1em;
+                font-size:300%;
             }
-            
-            @font-face{
-                font-family: 'Istok Web', sans-serif;
+
+            .header {
+                font-style:italic;
+                color:#7AB800;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Hevetica, Arial, "Lucida Grande", sans-serif;
+                font-weight:300;
+                font-size:300%;
+                text-align:center;
+                margin-bottom:1em;
+                margin-top:2em;
             }
-            
-            .bar{
-                width: 100%; 
-                height: 69px; 
-                background-color: #191b1d; 
-                text-align: center;
-            }
-            
-            .bar #message{
-                font-family: 'Istok Web', sans-serif;
-                font-size: 15px;
-                color:#fff;
-                display: inline-block;
-                position: relative;
-                top: 25px;
-            }
-            
-            .bar #button{
-                border: 1px solid #96ba05; 
-                font-weight: bold; 
-                text-align: center; 
-                text-decoration: none;
-                color: #fff; 
-                background-color:#96ba05; 
-                padding: 10px; 
-                position: absolute; 
-                right: 20px; 
-                top: 18px; 
-                border-radius: 3px; 
-                transition: all 200ms ease-out
-            }
-            
+
             .main {
-                height: 947px; 
-                width: 940px; 
-                background: url('img/mbp.png') center bottom no-repeat; 
-                position: relative;
-            }
-            
-            .main .title {
-                width: 100%; 
-                display: block; 
-                position: absolute; 
-                text-align: center; 
-                right: 0; 
-                top: 70px;
-            }
-            
-            .main .title h1, .main .title h2 { 
-                text-shadow: 0 1px 2px rgba(0,0,0,.5);
-                color: #96ba05;
-            }
-            
-            .main .title h1 {
-                font-size: 60px; 
-                font-weight: bold; 
-            }
-            
-            .main .title h2 {
-                font-size: 32px; 
-                line-height: 1.4; 
-                font-weight: normal; 
-                margin-top: 20px; 
+                margin-top:5em;
+                margin-bottom:5em;
             }
 
-            .main .title #quote{
-                text-shadow: 0 1px 2px rgba(0,0,0,.1);
-                font-size: 20px;
-                line-height: 1;
-                font-weight: normal;
-                text-decoration: italic;
-                margin-bottom: 30px;
-                margin-top: -25px;
-            }
-            
-            .main .title .download {
-                left: 40%; 
-                margin-top: 50px;
-            }
-            
-            .main .title .comments{
-                margin-top: 110px;
-                color: #96ba05;
-            }
-            
             .download {
-                position: absolute;
-                z-index: 1;
-                display: block;
-                width: 199px;
-                height: 51px;
-                border-radius: 3px;
-                background-clip: padding-box;
-                background-color: #96ba05; 
-                box-shadow: 0 2px 2px rgba(2,3,3,.15), inset 0 1px 0 rgba(255,255,255,.3), inset 0 0 5px rgba(255,255,255,.05); 
-                margin-bottom: 50px;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+                color: #ffffff;
+                background-color: #7AB800;
+                border-width: 2px;
+                border-color: #7AB800;
+                font-size:200%;
+                margin-bottom:0.5em;
+                margin-top:2.5em;
             }
-            
-            .download .label {
-                font-size: 18px; 
-                font-weight: bold; 
-                color: #fff; 
-                text-align: center; 
-                display: block; 	
-                text-shadow: 0 -1px 0 rgba(2,3,3,.2); 
-                position: absolute; 
-                line-height: 3; 
-                z-index: 10; 
-                width: 199px; 
-                height: 51px;
+
+            .download:hover {
+                color:#7AB800;
+                background-color: #ffffff;
+                border-color:#7AB800;
             }
-        </style>
-    </head>
-  
-    <body> 
+
+            .previous {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+                color: #ffffff;
+                background-color: #E74C3C;
+                border-width:2px;
+                border-color: #E74C3C;
+                font-size:200%;
+                margin-top:2.5em;
+            }
+
+            .previous:hover {
+                color: #E74C3C;
+                background-color: #ffffff;
+                border-color: #E74C3C;
+            }
+
+            .github {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+                color: #ffffff;
+                background-color: #2980B9;
+                border-width: 2px;
+                border-color: #2980B9;
+                font-size:200%;
+                margin-top:2.5em;
+            }
+
+            .github:hover {
+                color: #2980B9;
+                background-color: #ffffff;
+                border-color: #2980B9;
+            }
+
+            .subheader {
+                font-style:underline;
+                color:#7AB800;
+                font-weight:300%;
+                font-size:200%;
+                margin-top:-1em;
+                margin-bottom:1em;
+            }
+
+            .tnw {
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+            }
+
+            .tnw p {
+                font-size: 200%;
+            }
+
+            .tnw small {
+                font-size: 150%;
+            }
+
+            .subsub {
+                color: #7AB800;
+                font-weight:300%;
+                font-size:150%;
+            }
+
+            li {
+                color: #7AB800;
+                font-weight:300%;
+                font-size:110%;
+            }
+
+            .info {
+                font-style: italic;
+                color: #7AB800;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+                font-weight: 300;
+                font-size:120%;
+            }
+
+            .navbar-default {
+                background-color: #7AB800; /* background color will be black for all browsers */
+                background-image: none;
+                background-repeat: no-repeat;
+                filter: none;
+                color: #ffffff;
+            }
+
+            .footer {
+                color: #ffffff;
+                font-size:140%;
+                font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucdia Grande", sans-serif;
+                font-weight; 300;
+            }
         
-        <!-- Crafted by... Registered trademark... Blah. Blah. Blah. -->
-        <div class="bar">
-           <span id="message">Crafted with <span style="color:#cc3333;";>&hearts;</span> by <a href="http://mihirsingh.com" style="color:#0099CC; text-decoration:none;">Mihir Singh</a>. <span style="color:#96ba05">Spotify</span> is a registered trademark of Spotify AB Inc.</span>
-           <a href="http://github.com/citruspi/Spotify-Notifications" id="button">Get the Source on Github</a>
-        </div>
+        </style>
 
-        <!-- App Name, Desciption, Download Button, & Image -->
-        <div class="main">
-            <div class="title">
-                <p id="quote" style="color:#96ba05;"><i>"...if you’re a fan of Spotify’s radio feature and don’t like having to switch back and forth <br>to see what song is playing, it’s a great (and light-weight) solution."</i> - <a href="http://thenextweb.com/apps/2013/04/07/this-simple-app-brings-spotify-to-your-macs-notification-center/" style="text-decoration:none; color:inherit;">TheNextWeb</a></p>
-            
-                <h1 style="color:#96ba05;">Spotify Notifications</h1>
-                <h2 style="color:#96ba05;">Bridging Spotify and OS X Notification Center</h2>
-                               
-                <a href="https://github.com/citruspi/Spotify-Notifications/releases/download/v0.4.4/Spotify.Notifications.zip" class="download">
-                    <span class="label">DOWNLOAD NOW</span>
-                </a>
-                <p class="comments">Version 0.4.4 // 1.1 MB</p>
+    </head>
+
+    <body>
+        <!--        
+        <div id="header" style="margin-bottom:70px;">
+
+            <div class="navbar navbar-default navbar-fixed-top">
+
+                <div class="container">
+
+                    <p class="navbar-text navbar-pull-left">Hey</p>
+
+                </div>
+
             </div>
+
+        </div>
+        -->
+
+        <div class="container main">
+
+            <h1 class="logo">Spotify Notifications</h1>
+            <h2 class="slogan">Bridging Spotify and OS X Notification Center</h2>
+
+
+            <h3 class="header">&mdash; Downloads &amp; Links &mdash;</h3>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <!--
+                    <h3 class="subheader">Changelog</h3>
+
+                    <h4 class="subsub">Version 0.4.4</h4>
+
+                    <ul class="list-unstyled">
+                        <li>&#9835; Global shortcut to show current track information</li>
+                    </ul>
+
+                    <h4 class="subsub">Version 0.4.3</h4>
+                        
+                    <ul class="list-unstyled">
+                        <li>&#9835; Disabled preference window visibility on startup</li>
+                    </ul>
+
+                    <h4 class="subsub">Version 0.4.2</h4>
+                    
+                    <ul class="list-unstyled">
+                        <li>&#9835; Puts Spotify in focus when the notification is clicked</li>
+                    </ul>
+
+                    <h4 class="subsub">Version 0.4.1</h4>
+
+                    <ul class="list-unstyled">
+                        <li>&#9835; Implemented start on login option</li>
+                    </ul>
+                    -->
+
+                    <center>
+                        <a href="https://github.com/citruspi/Spotify-Notifications/releases" type="button" class="btn btn-lg previous">Previous Versions</a>
+                    </center>
+
+                </div>
+
+                <div class="col-md-4">
+
+                    <center>
+                        <a href="https://github.com/citruspi/Spotify-Notifications/releases/download/v0.4.4/Spotify.Notifications.zip" type="button" class="btn btn-lg download" onclick="mixpanel.track('downloaded')">Download Now</a><br>
+                        <small class="info">Version 0.4.4 // 1.1 MB</small><br>
+                        <small class="info">Requires OS X 10.7 or greater</small>
+                    </center>
+
+                </div>
+
+                <div class="col-md-4">
+                    <center>
+                        <a href="https://github.com/citruspi/Spotify-Notifications" type="button" class="btn btn-large github">Source on Github</a>
+                    </center>
+                </div>
+
+            </div>
+
+
+            <h3 class="header">&mdash; Reviews &mdash;</h3>
+
+            <div class="row">
+
+                <div class="col-md-12">
+                    <blockquote class="tnw">
+                        <p>...if you're a fan of Spotify's radio feature and don't like having to switch back and forth to see what song is playing, it's a great (and light-weight) solution.</p>
+                        <small>Harrison Weber, <a href="http://thenextweb.com/apps/2013/04/07/this-simple-app-brings-spotify-to-your-macs-notification-center/"><cite title="Source Title">TheNextWeb</cite></a></small>
+                    </blockquote>
+                </div>
+
+                <div class="col-md-4">
+                    <blockquote class="twitter-tweet">
+                        <p>Must have free app for Mac Spotify users - Spotify Notifications, Bridging Spotify and OS X Notification Center <a href="http://t.co/CoDHrieJ7I">http://t.co/CoDHrieJ7I</a></p>
+                        &mdash; Adam Bitner (@apbitner) <a href="https://twitter.com/apbitner/statuses/372792192659890176">August 28, 2013</a>
+                    </blockquote>
+                    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+
+                <div class="col-md-4">
+                    <blockquote class="twitter-tweet">
+                        <p>Awesome! Spotify in your Notification Center, <a href="http://t.co/p0yOxLO72P">http://t.co/p0yOxLO72P</a> , thanks to <a href="https://twitter.com/citruspi">@citruspi</a> .. <a href="https://twitter.com/search?q=%23osx&amp;src=hash">#osx</a> <a href="https://twitter.com/search?q=%23spotify&amp;src=hash">#spotify</a> <a href="https://twitter.com/search?q=%23opensource&amp;src=hash">#opensource</a></p>
+                        &mdash; Sander Boersma (@sanderboersma) <a href="https://twitter.com/sanderboersma/statuses/361397196685447170">July 28, 2013</a>
+                    </blockquote>
+                </div>
+
+                <div class="col-md-4">
+                    <blockquote class="twitter-tweet">
+                        <p>Use <a href="https://twitter.com/Spotify">@Spotify</a> on <a href="https://twitter.com/search?q=%23OSX&amp;src=hash">#OSX</a>? You need this app - Spotify song notifications <a href="http://t.co/Xm1ketMW5X">http://t.co/Xm1ketMW5X</a></p>
+                        &mdash; Michael Pullman (@michaelpullman) <a href="https://twitter.com/michaelpullman/statuses/336710274419662848">May 21, 2013</a>
+                    </blockquote>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-4">
+                    <blockquote class="twitter-tweet">
+                        <p>Just downloaded Spotify Notifications for OS X (<a href="http://t.co/VGZVTaXWpn">http://t.co/VGZVTaXWpn</a>). Didn&#39;t think I needed Spotify notifications until now.</p>
+                        &mdash; Daniel Doelling (@Daniel_Doelling) <a href="https://twitter.com/Daniel_Doelling/statuses/326032159682994177">April 21, 2013</a>
+                    </blockquote>
+                </div>
+
+                <div class="col-md-4">
+                    <blockquote class="twitter-tweet">
+                        <p>Spotify Notifications - great app for Mac! <a href="http://t.co/SGhMFc6TpF">http://t.co/SGhMFc6TpF</a></p>
+                        &mdash; Fred (@fredsoneya) <a href="https://twitter.com/fredsoneya/statuses/321185399550644224">April 8, 2013</a>
+                    </blockquote>
+                </div>
+
+                <div class="col-md-4">
+                    <blockquote class="twitter-tweet">
+                        <p>You no longer have to click in &amp; out of <a href="https://twitter.com/Spotify">@Spotify</a> to see what song is playing with <a href="https://twitter.com/citruspi">@citruspi</a> app Spotify Notifications <a href="http://t.co/ghsqEmcpA6">http://t.co/ghsqEmcpA6</a></p>
+                        &mdash; The Lovie Awards (@lovieawards) <a href="https://twitter.com/lovieawards/statuses/322341331945021440">April 11, 2013</a>
+                    </blockquote>
+                </div>
+
+            </div>
+
         </div>
 
-        <!-- Gau.ges Analytics -->
-        <script type="text/javascript">
-            var _gauges = _gauges || [];
-            (function() {
-                var t   = document.createElement('script');
-                t.type  = 'text/javascript';
-                t.async = true;
-                t.id    = 'gauges-tracker';
-                t.setAttribute('data-site-id', '51619bdaf5a1f517c6000128');
-                t.src = '//secure.gaug.es/track.js';
-                var s = document.getElementsByTagName('script')[0];
-                s.parentNode.insertBefore(t, s);
-            })();
-        </script>
+        <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+            <div class="container">
+                <p class="navbar-text pull-left footer" style="color:#ffffff">Made with <span style="color:#CC3333;">&hearts;</span> and a cup of &#9749; by Mihir Singh (@citruspi)</p>
+                <p class="navbar-text pull-right footer" style="color:#ffffff">Spotify is a registered trademark of Spotify AB Inc.</p>
+            </div>
+        </nav>
+
+        <!-- start Mixpanel --><script type="text/javascript">(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src=("https:"===e.location.protocol?"https:":"http:")+'//cdn.mxpnl.com/libs/mixpanel-2.2.min.js';f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f);b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==
+typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");for(g=0;g<i.length;g++)f(c,i[g]);
+b._i.push([a,e,d])};b.__SV=1.2}})(document,window.mixpanel||[]);
+        mixpanel.init("e6112e02f9e25f57130c858099388c0f");</script><!-- end Mixpanel -->
 
     </body>
+
 </html>
